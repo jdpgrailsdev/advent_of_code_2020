@@ -1,7 +1,7 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
-pub fn expense_report() {	
+pub fn exercise() {	
     let input = File::open("./data/day1.data").unwrap();
     let reader = BufReader::new(input);
 	
