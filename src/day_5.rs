@@ -27,7 +27,6 @@ pub fn exercise() {
     for (i, row) in floor_plan.iter_mut().enumerate() {
         for (y, col) in row.iter_mut().enumerate() {
             if *col != 'X' {
-                println!("Seat {} in row {} is empty.", y, i);
                 let id = (i*8)+y;
                 if id > 0 && seat_ids.iter().any(|i| *i == ((id - 1) as i32 )) && seat_ids.iter().any(|i| *i == ((id + 1) as i32)) {
                     println!("My seat ID is {}.", id);
