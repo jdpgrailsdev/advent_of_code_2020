@@ -4,7 +4,7 @@ use std::str::Chars;
 use math::round;
 
 pub fn exercise() {
-    let mut floor_plan: Vec<Vec<char>> = vec![vec!['_'; 8]; 128]
+    let mut floor_plan: Vec<Vec<char>> = vec![vec!['_'; 8]; 128];
     let mut seat_ids: Vec<i32> = Vec::new();
     let data = load_data();
 
