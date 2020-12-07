@@ -22,7 +22,7 @@ pub fn exercise() {
         let _ignore = std::mem::replace(&mut floor_plan[row as usize][col as usize], 'X');
     }
 
-    println!("Highest seat value is {}.", seat_ids.iter().max().unwrap());
+    println!("Highest seat ID value is {}.", seat_ids.iter().max().unwrap());
 
     for (i, row) in floor_plan.iter_mut().enumerate() {
         for (y, col) in row.iter_mut().enumerate() {
