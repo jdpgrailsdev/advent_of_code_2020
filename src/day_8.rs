@@ -24,7 +24,6 @@ fn accumulate(data: Vec<String>) {
 		
 		let instruction = &data.get(index as usize).unwrap();
 		let i = instruction.split(" ").map(String::from).collect::<Vec<String>>();
-		println!("{:?}", i);		
 				
 		match i.get(0).unwrap().as_ref() {
 			"acc" => index += accumulate_and_advance(i.get(1).unwrap().to_string(), &mut accumulator),
