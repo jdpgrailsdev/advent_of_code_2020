@@ -14,7 +14,7 @@ fn find_first_invalid(data: Vec<i64>) {
 	let mut current_index = 25;
 	let mut current_sum = 0;
 	
-	while(not_found) {
+	while not_found {
 		current_sum = *data.get(current_index).unwrap();
 		not_found = is_match(data[(starting_index)..(current_index)].to_vec(), current_sum);
 		current_index += 1;

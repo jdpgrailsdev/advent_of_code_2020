@@ -30,7 +30,7 @@ fn find_adapter_distribution(mut jolts: i32, data: Vec<i32>, mut distribution: H
 //			println!("Adapter {} and jolts {} have a difference of {}.", adapter, jolts, adapter - jolts);
 			if difference == current_difference {
 				jolts = *adapter;
-				if(!distribution.contains_key(&difference)) {
+				if !distribution.contains_key(&difference) {
 					distribution.insert(difference, 1);
 				} else {
 					distribution.insert(difference, distribution.get(&difference).unwrap() + 1);

@@ -51,7 +51,7 @@ fn find_gold_containers(rule: String, bags: Vec<(String,i32)>, rules: HashMap<St
 			println!("Rule {} contains 'shiny gold'.", rule);
 			containers.insert(rule.to_string());
 		} else if rules.contains_key(&b.0) {			
-			if(rules.get(&b.0).unwrap().len() > 0) {
+			if rules.get(&b.0).unwrap().len() > 0 {
 				println!("Making recursive call for color {} and bags {:?}...", b.0, rules.get(&b.0).unwrap().to_vec());
 				let mut color = &b.0;
 				let matches = find_gold_containers(color.to_string(), rules.get(&b.0).unwrap().to_vec(), rules.clone());

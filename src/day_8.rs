@@ -14,7 +14,7 @@ fn accumulate(data: Vec<String>) {
 	let mut more = true;
 	let mut executed_instructions: HashSet<i32> = HashSet::new();
 
-	while(more) {
+	while more {
 		if executed_instructions.contains(&index) {
 			more = true;
 			break;
