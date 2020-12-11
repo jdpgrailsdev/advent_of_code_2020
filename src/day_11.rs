@@ -4,7 +4,7 @@ use std::io::{BufRead, BufReader};
 pub fn exercise() {
     let mut data = load_data();
 	
-	compute(&mut data);
+//	compute(&mut data);
 }
 
 fn compute(data: &mut Vec<Vec<char>>) {
@@ -49,6 +49,7 @@ fn compute(data: &mut Vec<Vec<char>>) {
 	}
 	
 	if changes > 0 {
+		println!("Changes ({}) were made...making another pass.", changes);
 		compute(&mut updated_rows);
 	} else {
 		let mut occupied = 0;
@@ -65,25 +66,29 @@ fn compute(data: &mut Vec<Vec<char>>) {
 
 fn check_open_seats(data: Vec<Vec<char>>, current_row: i32, current_col: i32) -> i32 {
 	let mut open_seats = 0;
+	let row_range: Vec<i32> = ((current_row - 1)..(current_row + 2)).collect();
+	let col_range: Vec<i32> = ((current_col - 1)..(current_col + 2)).collect();
 	
-	for r in [(current_row - 1),(current_row + 1)].iter() {		
-		if r < &0 || r >= &(data.len() as i32) {
-		    open_seats += 1;
-		} else {						 
-			for c in [(current_col - 1),(current_col + 1)].iter() {
-				let row = data.get(*r as usize).unwrap();
-				if c < &0 || c >= &(row.len() as i32) {		
-					open_seats += 1;
-				} else {		
-					let seat = row.get(*c as usize).unwrap();
-					if *seat != '#' {
-						open_seats += 1;
+//	println!("{:?} and {:?}", row_range, col_range);
+	
+	for r in row_range {		
+		if r >= 0 && r < (data.len() as i32) {				 
+			for c in &col_range {
+				if (r, *c) != (current_row, current_col) {
+					let row = data.get(r as usize).unwrap();
+					if *c >= 0 && *c < (row.len() as i32) {		
+						let seat = row.get(*c as usize).unwrap();
+//						println!("Checking seat '{}' at position ({},{})...", seat, r, c);
+						if *seat != '#' {
+							open_seats += 1;
+						}
 					}
 				}				
 			}
 		}
 	}
-		
+	
+//	println!("Found {} open_seats for row {} and col {}.", open_seats, current_row, current_col);	
 	return open_seats;
 }
 
