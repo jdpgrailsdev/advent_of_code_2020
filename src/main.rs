@@ -9,6 +9,7 @@ pub mod day_8;
 pub mod day_9;
 pub mod day_10;
 pub mod day_11;
+pub mod day_12;
 
 fn main() {
     day_1::exercise();
@@ -42,5 +43,8 @@ fn main() {
 	println!("******************************");		
 	
 	day_11::exercise();
-	println!("******************************");	
+	println!("******************************");
+	
+	day_12::exercise();
+	println!("******************************");
 }
