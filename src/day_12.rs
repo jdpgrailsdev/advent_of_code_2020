@@ -18,9 +18,6 @@ fn compute_manhattan_distance(data: Vec<String>) {
 		let direction = instruction.chars().next().unwrap();
 		let amount: i32 = instruction[1..instruction.len()].parse().unwrap();
 		
-		println!("Instruction {}", instruction);
-		println!("BEFORE: current direction {} with coordinates ({},{}).", current_direction, east_west_pos, north_south_pos);
-		
 		if direction == 'R' {
 			let moves = (amount/90) as usize;
 			let current_index = directions.iter().position(|&i| i == current_direction).unwrap();
@@ -54,8 +51,6 @@ fn compute_manhattan_distance(data: Vec<String>) {
 				 _ => println!("Unknown direction {}", direction),
 			} 
 		}
-		
-		println!("AFTER: current direction {} with coordinates ({},{}).", current_direction, east_west_pos, north_south_pos);
 	}
 	
 	println!("The ship's Manhattan distance is {}.", (east_west_pos.abs() + north_south_pos.abs()));
